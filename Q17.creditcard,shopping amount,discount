@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class CreditCard {
+    public static void main(String[] args) {
+        String cardType;
+        double shopAmt, discountAmt, netPrice;
+		 double discount = 0;
+		
+
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter credit card type (VISA, XYZ, ABC): ");
+        cardType = s.next();
+        System.out.println("Enter Shopping Amount: ");
+        shopAmt = s.nextDouble();
+
+        switch (cardType) 
+		{
+            case "VISA":
+                if (shopAmt < 5000) 
+				{
+                    discount = 10;
+                } 
+				else
+					{
+                    discount = 20;
+                }
+                break;
+            case "XYZ":
+                if (shopAmt < 10000) 
+				{
+                    discount = 15;
+                } 
+				else
+					{
+                    discount = 25;
+                }
+                break;
+            case "ABC":
+                if (shopAmt < 8000)
+					{
+                    discount = 12;
+                } 
+				else
+					{
+                    discount = 15;
+                }
+                break;
+            default:
+                System.out.println("Invalid card type");
+                return;
+        }
+
+        discountAmt = shopAmt * (discount / 100);
+        netPrice = shopAmt - discountAmt;
+        System.out.println("The net price is: " + netPrice);
+    }
+}
