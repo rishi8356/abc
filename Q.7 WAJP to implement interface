@@ -1,21 +1,21 @@
 interface in1
 {
-	
-	void calculate(int x,int y);
-	void fact(int x);
-	
+void calculate(int x,int y);
 }
-class sal implements in1
+interface in2 extends in1
 {
-	sal()
-	{
-		System.out.println("ok");
-	}
-	void disp()
-	{
-		
-	System.out.println("DISPLAY WITHOUT PATTERN");
-	}
+void fact(int x);
+}
+public class sal1 implements in1,in2
+{
+sal1()
+{
+System.out.println("Ok");
+}
+void disp()
+{
+System.out.println("display wihtout pattern");
+}
 	public void calculate(int x,int y)
 	{
 		System.out.println("ADDITUON-"+(x+y));
@@ -32,9 +32,9 @@ class sal implements in1
 	}
 	public static void main (String s1[])
 	{
-	sal e = new sal();
+			sal1 e = new sal1(); 
 	e.disp();
-	e.calculate(5,5);
+	e.calculate(15,5);
 	e.fact(5);
 	}
 }
