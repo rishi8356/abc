@@ -1,0 +1,32 @@
+import java.util.*;
+class sal
+{
+public static void main(String args[])
+{
+double basicSal, netSal,increasedSal;
+double increment=0;
+Scanner s=new Scanner(System.in);
+System.out.println("Enter basic sal");
+basicSal=s.nextDouble();
+if(basicSal<3000)
+{
+increment=2;
+}
+else if(basicSal>=3000&&basicSal<5000)
+{
+	increment=5;
+}
+else if(basicSal>=5000&&basicSal<10000)
+{
+	increment=10;
+}
+else if(basicSal>10000){
+	increment=20;
+}
+
+increasedSal=basicSal*(increment/100);
+
+netSal=(basicSal+increasedSal);
+System.out.println("THE NET SALAARY AFTER THE INCREMENT ON THE BASIC SALARY is "+netSal);
+}
+}
