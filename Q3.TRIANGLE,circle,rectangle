@@ -1,0 +1,24 @@
+import java.util.*;
+class triangle
+{
+	public static void main (String s1[])
+	{
+		int base,height,l,b,r;
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the base:");
+		base = s.nextInt();
+		System.out.println("ENTER THE HEIGHT");
+		height = s.nextInt();
+		System.out.println("AREA OF  A TRIANGLE:-"+(0.5*base*height));
+		System.out.println("----------------------------------------");
+		System.out.println("ENTER THE lenght");
+		l = s.nextInt();
+		System.out.println("ENTER THE breadth");
+		b = s.nextInt();
+		System.out.println("AREA OF A RECTANGLE:-"+(l*b));
+		System.out.println("----------------------------------------");
+		System.out.println("eneter the radius");
+		r = s.nextInt();
+	System.out.println("AREA OF A circle:-"+(3.14*r*r));	
+	}
+}
