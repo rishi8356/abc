@@ -1,0 +1,63 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.WindowListener;
+
+class grades extends Frame implements ActionListener {
+    TextField tf, tf3;
+    Button b;
+    Label l;
+
+    grades() {
+        l = new Label("Enter your marks%:");
+        tf = new TextField();
+        tf3 = new TextField();
+        b = new Button("Calculate");
+
+        l.setBounds(30, 40, 120, 20);
+        tf.setBounds(160, 40, 80, 20);
+        tf3.setBounds(30, 120, 200,50); // Increased the height to 50
+        b.setBounds(30, 80, 120, 30);
+	b.setBackground(Color.BLUE);
+        b.setForeground(Color.WHITE);
+        add(l);
+        add(tf);
+        add(tf3);
+        add(b);
+
+        setSize(300, 300);
+        setLayout(null);
+        setVisible(true);
+
+        b.addActionListener(this);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b) {
+            int per = Integer.parseInt(tf.getText());
+            tf3.setText("Percentage: " + per);
+
+            if (per >= 90)
+                tf3.setText(tf3.getText() + "\nGrade A");
+            else if (per >= 80)
+                tf3.setText(tf3.getText() + "\nGrade B");
+            else if (per >= 70)
+                tf3.setText(tf3.getText() + "\nGrade C");
+            else if (per >= 60)
+                tf3.setText(tf3.getText() + "\nGrade D");
+            else if (per >= 40)
+                tf3.setText(tf3.getText() + "\nGrade E");
+            else
+                tf3.setText(tf3.getText() + "\nGrade F");
+        }
+    }
+
+    public static void main(String args[]) {
+        grades g = new grades();
+    }
+}
