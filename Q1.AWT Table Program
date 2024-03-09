@@ -1,0 +1,64 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class MultiplicationTable extends Frame implements ActionListener 
+{
+	Label label;
+    TextField tf;
+    Button b;
+    TextArea resultArea;
+
+    MultiplicationTable() {
+        Label label = new Label("Enter a number:");
+        tf = new TextField();
+        b = new Button("Generate Table");
+        resultArea = new TextArea();
+
+        label.setBounds(30, 40, 120, 20);
+        tf.setBounds(160, 40, 80, 20);
+        b.setBounds(30, 80, 120, 30);
+        resultArea.setBounds(30, 120, 200, 150);
+
+        add(label);
+        add(tf);
+        add(b);
+        add(resultArea);
+
+        b.addActionListener(this);
+
+        setSize(250, 300);
+        setLayout(null);
+        setVisible(true);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b) {
+            try {
+                int number = Integer.parseInt(tf.getText());
+                generateTable(number);
+            } catch (NumberFormatException ex) {
+                resultArea.setText("Invalid input. Please enter a valid number.");
+            }
+        }
+    }
+
+    private void generateTable(int number) {
+        StringBuilder tableResult = new StringBuilder();
+        for (int i = 1; i <= 10; i++) {
+            int result = number * i;
+            tableResult.append(number).append(" * ").append(i).append(" = ").append(result).append("\n");
+        }
+        resultArea.setText(tableResult.toString());
+    }
+
+    public static void main(String args[])
+	{
+       MultiplicationTable m =  new MultiplicationTable();
+    }
+}
