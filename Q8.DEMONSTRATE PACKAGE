@@ -1,0 +1,40 @@
+// INSIDE THE PACKAGE
+package pac1;
+ public class emp
+ {
+	 public void show()
+	 {
+		 System.out.println("class emp show");
+	 }
+ }
+	 
+	 class dept
+	 {
+		 void disp()
+		 {
+			 emp e = new emp();
+			 e.show();
+			 System.out.println("class depyth disp");
+		 }
+	 }
+			 /// OUTSIDE THE PACKAGE
+
+import pac1.emp.*;
+class pacdemo
+{
+pacdemo()
+{
+System.out.println(" class show2 function");
+}
+void disp2()
+{
+System.out.println("disp2 functipon");
+}
+public static void main(String s1[])
+{
+pacdemo d = new pacdemo();
+pac1.emp e = new pac1.emp();
+e.show();
+d.disp2();
+}
+}	
