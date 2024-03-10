@@ -1,0 +1,73 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class StationaryPriceApp extends Frame implements ActionListener {
+
+    Choice c;
+    Label l, rf; // Added Label for result
+
+    public StationaryPriceApp() {
+        c = new Choice();
+        c.add("pen");
+        c.add("pencil");
+        c.add("eraser");
+        c.add("ruler");
+        c.add("notebook");
+        c.setBounds(100, 70, 200, 20);
+
+        l = new Label("Result: ");
+        l.setAlignment(Label.CENTER);
+        l.setBounds(100, 120, 200, 20);
+
+        rf = new Label(); // Result Label
+        rf.setAlignment(Label.CENTER);
+        rf.setBounds(100, 150, 200, 20);
+
+        Button b = new Button("Show Price");
+        b.setBounds(150, 200, 100, 30);
+
+        add(c);
+        add(l);
+        add(rf);
+        add(b);
+
+        setSize(400, 300);
+        setLayout(null);
+        setVisible(true);
+
+        b.addActionListener(this);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String selectedStationary = c.getSelectedItem();
+
+        switch (selectedStationary) 
+		{
+            case "pen":
+                rf.setText("The price of pen is ₹20");
+                break;
+            case "pencil":
+                rf.setText("The price of pencil is ₹12");
+                break;
+            case "eraser":
+                rf.setText("The price of eraser is ₹5");
+                break;
+            case "ruler":
+                rf.setText("The price of ruler is ₹10");
+                break;
+            case "notebook":
+                rf.setText("The price of notebook is ₹32");
+                break;
+        }
+    }
+
+    public static void main(String s1[]) {
+         StationaryPriceApp ss=  new StationaryPriceApp();
+    }
+}
