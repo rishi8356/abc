@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Employee {
+    int empno;
+    String empname, job;
+
+    public Employee(int empno, String empname, String job) {
+        this.empno = empno;
+        this.empname = empname;
+        this.job = job;
+    }
+
+    public void showinfo() {
+        System.out.println("Employee Number: " + empno);
+        System.out.println("Employee Name: " + empname);
+        System.out.println("Job: " + job);
+    }
+}
+
+class Salary extends Employee {
+    float basic;
+    double newsal;
+
+    public Salary(int empno, String empname, String job, float basic) {
+        super(empno, empname, job);
+        this.basic = basic;
+    }
+
+    public void calculate(double perc) {
+        newsal = basic + (basic * perc / 100);
+    }
+
+    public void dispData() {
+        System.out.println("Basic Salary: " + basic);
+    }
+}
+
+public class EmpMain {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter Employee Number: ");
+        int empno = s.nextInt();
+        s.nextLine();
+		
+        System.out.print("Enter Employee Name: ");
+        String empname = s.nextLine();
+
+        System.out.print("Enter Job: ");
+        String job = s.nextLine();
+
+        System.out.print("Enter Basic Salary: ");
+        float basic = s.nextFloat();
+
+        Salary emp1 = new Salary(empno, empname, job, basic);
+
+        System.out.print("Enter Increase Percentage: ");
+        double perc = s.nextDouble();
+
+        emp1.showinfo(); 
+        emp1.calculate(perc);
+        emp1.dispData(); 
+        System.out.println("New Salary: " + emp1.newsal);
+    }
+}
