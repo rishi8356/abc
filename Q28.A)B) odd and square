@@ -1,0 +1,83 @@
+import java.awt.*;
+import java.awt.event.*;
+public class OddAndSquare extends Frame implements ActionListener{
+	TextField tf ;
+	Label n,l,r;
+	Button b1,b2;
+	OddAndSquare(){
+		tf = new TextField();
+		
+		n = new Label("ODD AND SQUARING AWT PROGRAM ");
+		l = new Label("Enter the number");
+		r = new Label();
+		
+		b1 = new Button("printing Odd numbers");
+		b2 = new Button("Square of the numbers");
+		
+		n.setBounds(30,40,200,20);
+		l.setBounds(30,70,200,20);
+		r.setBounds(30,200,300,200);
+		
+		tf.setBounds(30,90,200,20);
+		
+		b1.setBounds(30,120,200,20);
+		b1.setBackground(Color.BLUE);
+		b1.setForeground(Color.WHITE);
+		b1.addActionListener(this);
+		b2.setBounds(30,150,200,20);
+		b2.setBackground(Color.BLUE);
+		b2.setForeground(Color.WHITE);
+		b2.addActionListener(this);
+		
+		add(n);
+		add(l);
+		add(r);
+		add(tf);
+		add(b1);
+		add(b2);
+		
+		setSize(1000,1000);
+		setLayout(null);
+		setVisible(true);
+		
+		addWindowListener(new WindowAdapter(){
+				public void windowClosing(WindowEvent e){
+						dispose();
+				}
+		});
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		if(e.getSource() == b1){
+			int x = Integer.parseInt(tf.getText());
+			Oddnumber(x);
+		}
+		if(e.getSource() == b2){
+			int x = Integer.parseInt(tf.getText());
+			SquareNumber(x);
+		}
+	}
+	
+	public void Oddnumber(int x){
+		String OddNumber = "";
+		for(int i = 1;i <= x;i++){
+			if(i % 2 != 0){
+				OddNumber = OddNumber + i + "";
+			}
+		}
+		r.setText("The odd numbers are : "+OddNumber);
+	}
+	
+	public void SquareNumber(int x){
+		String Square = "";
+		for(int i = 1;i <= x;i++){
+			int square = i * i; 	
+			Square = Square + square + "";
+		}
+		r.setText(Square);
+	}
+	
+	public static void main(String s1[]){
+		OddAndSquare e = new OddAndSquare();
+	}
+}
