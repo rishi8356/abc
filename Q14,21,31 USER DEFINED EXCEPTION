@@ -45,3 +45,55 @@ class Student
 	}
 }
 }
+
+/////ACCOUNT
+
+import java.util.*;
+class exception extends Exception
+{
+	public exception(String st)
+	{
+		super(st);
+	}
+}
+class Account
+{
+	int accno;
+	String name;
+	double balance;
+	
+	public Account(int accno,String name,double balance)
+	{
+		this.accno = accno;
+		this.name = name;
+		this.balance = balance;	
+	}
+	
+	void check() throws exception
+	{
+		System.out.println("Enter the account no:" +accno);
+		System.out.println("Enter the name:" +name);
+       System.out.println("Enter the balnce:" +balance);
+if(balance>=1000 && balance <= 5000)
+{
+System.out.println("in range");	
+}
+else
+{
+	System.out.println("not in range");
+}
+	}
+
+public static void main(String s3[])
+{
+	Account a = new Account(12,"varad",4500);
+	try
+	{
+	a.check();
+	}
+	catch(exception e)
+	{
+		System.out.println(e);
+	}
+}
+	}
